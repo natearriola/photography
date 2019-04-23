@@ -375,17 +375,11 @@ body .flex {
 }
 
 body .column {
-  -webkit-box-flex: 25%;
-      -ms-flex: 25%;
-          flex: 25%;
-  max-width: 25%;
+  -webkit-box-flex: 33.33%;
+      -ms-flex: 33.33%;
+          flex: 33.33%;
+  max-width: 33.33%;
   padding: 0 4px;
-}
-
-body .column .img-16 {
-  max-width: 80%;
-  position: relative;
-  left: .5rem;
 }
 
 body .column img {
@@ -449,10 +443,6 @@ TABLET SCREEN SIZE
   body .cover > h1 {
     font-size: 36px;
   }
-  body .column .img-16 {
-    position: relative;
-    left: 1rem;
-  }
 }
 
 @media screen and (min-device-width: 1024px) and (max-device-width: 1440px) and (-webkit-min-device-pixel-ratio: 1) {
@@ -468,10 +458,6 @@ TABLET SCREEN SIZE
     display: -ms-flexbox;
     display: flex;
     width: 100%;
-  }
-  body .column .img-16 {
-    position: relative;
-    left: 2rem;
   }
 }
 
@@ -504,15 +490,18 @@ LAPTOP SCREEN
   body .cover > h1 {
     font-size: 48px;
   }
+  body .column {
+    -webkit-box-flex: 25%;
+        -ms-flex: 25%;
+            flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+  }
   body footer .copy {
     padding-left: 2rem;
   }
   body footer .pgnum {
     padding-right: 2rem;
-  }
-  body .column .img-16 {
-    position: relative;
-    left: 2.5rem;
   }
 }
 
@@ -569,10 +558,6 @@ LAPTOP SCREEN
   body .cover > h1 {
     font-size: 80px;
   }
-  body .column .img-16 {
-    position: relative;
-    left: 3rem;
-  }
   body footer {
     font-size: 16px;
   }
@@ -609,10 +594,6 @@ LAPTOP SCREEN
   }
   body .cover > h1 {
     font-size: 100px;
-  }
-  body .column .img-16 {
-    position: relative;
-    left: 4.5rem;
   }
   body footer {
     font-size: 24px;

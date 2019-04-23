@@ -225,19 +225,14 @@ CONTENT IMAGES
 
 /* Create four equal columns that sits next to each other */
 .column {
-  flex: 25%;
-  max-width: 25%;
+  flex: 33.33%;
+  max-width: 33.33%;
   padding: 0 4px;
-  .img-16{
-    max-width: 80%;
-    position: relative;
-    left: .5rem;
-  }
+
 }
 
 .column img {
   margin-top: 8px;
-  
   max-width: 100%;
   
 }
@@ -443,13 +438,7 @@ TABLET SCREEN SIZE
     .cover > h1{
       font-size: 36px;
     }
-    .column {
-    
-      .img-16{
-        position: relative;
-        left: 1rem;
-      }
-    }
+  
    
   
   }
@@ -467,13 +456,7 @@ TABLET SCREEN SIZE
       width: 100%;
     }
 
-    .column {
     
-      .img-16{
-        position: relative;
-        left: 2rem;
-      }
-    }
   }
 }
 
@@ -510,6 +493,13 @@ LAPTOP SCREEN
       font-size: 48px;
     }
 
+    .column {
+      flex: 25%;
+      max-width: 25%;
+      padding: 0 4px;
+    
+    }
+
     footer {
     
       .copy {
@@ -522,13 +512,7 @@ LAPTOP SCREEN
         padding-right: 2rem;
       }
     }
-    .column {
-    
-      .img-16{
-        position: relative;
-        left: 2.5rem;
-      }
-    }
+   
 
   }
 
@@ -605,13 +589,7 @@ LAPTOP SCREEN
     .cover > h1{
       font-size: 80px;
     }
-    .column {
-    
-      .img-16{
-        position: relative;
-        left: 3rem;
-      }
-    }
+  
 
     
     footer {
@@ -663,13 +641,7 @@ LAPTOP SCREEN
     }
 
 
-    .column {
-    
-      .img-16{
-        position: relative;
-        left: 4.5rem;
-      }
-    }
+ 
 
    footer {
     font-size: 24px;
