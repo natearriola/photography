@@ -55,10 +55,12 @@ Header(nav,logo,links,etc)
 
 .header-flex {
   display: flex;
-  justify-content: space-evenly;
+justify-content: space-evenly;
   align-items: center;
-
   padding: 1rem;
+ 
+  
+ 
 
   @include for-big-desktop-up{
     padding: 2rem;
@@ -66,6 +68,7 @@ Header(nav,logo,links,etc)
   .logo {
     padding: 0;
     margin: 0;
+ 
     img {
       width: 45px;
       height: 40px;
@@ -215,177 +218,38 @@ NAV OVERLAY
 /**********************
 CONTENT IMAGES 
 ***********************/
-
-.cover{
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-
-}
-.cover > h1{
-  font-family: panton;
-  font-weight: bold;
-  font-size: 24px;
-  
-}
-
-.flex {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Create four equal columns that sits next to each other */
-.column {
-  padding: 1rem;
-
-}
-
-.column img {
-  margin-top: 2px;
-  width: 100%;
-  
-}
-
-
-
-
-
-/*
-.grid{
+.pic-grid{
   display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(35, 5vw);
-    grid-gap: 15px;
-    padding: 1rem;
+  grid-template-columns: repeat(minmax, (250px, 1fr));
+  align-items: center;
+
+  img{
+    width: 100%;
+    display: block;
+  }
 }
 
-.grid > img{
- max-width: 100%;
+
+/********************
+FOOTER 
+************/
+
+footer {
+ 
+  font-family: "raleway";
+  color: map-get($colors, extra);
+  font-size: 12px;
+  display: flex;
   
-  object-fit: cover;
+  align-items: center;
+  padding: 10px;
+
+  .btp{
+    flex-grow: 1;
+    a{
+      color: map-get($colors, secondary);
+      text-transform: uppercase;
+      font-size: 16px;
+    }
+  }
 }
-
-.img-12{
-  grid-column-start: 2;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 7;
-}
-
-
-.img-1{
-  grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 7;
-}
-
-.img-2{
-  grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 7;
-    grid-row-end: 10;
-}
-
-.img-3{
-  grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 7;
-    grid-row-end: 12;
-}
-
-.img-4{
-  grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 6;
-    grid-row-end: 12;
-}
-
-.img-5{
-  grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 5;
-    grid-row-end: 10;
-}
-
-.img-6{
-  grid-column-start: 3;
-    grid-column-end: 3;
-    grid-row-start: 4;
-    grid-row-end: 10;
-}
-
-
-
-.img-7{
-  grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 20;
-    grid-row-end: 24;
-}
-
-.img-8{
-  grid-column-start: 2;
-    grid-column-end: 4;
-    grid-row-start: 20;
-    grid-row-end: 26;
-}
-
-
-.img-9{
-  grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 24;
-    grid-row-end: 28;
-}
-.img-10{
-  grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 26;
-    grid-row-end: 29;
-}
-
-.img-11{
-  grid-column-start: 3;
-    grid-column-end: 3;
-    grid-row-start: 26;
-    grid-row-end: 31;
-}
-
-
-
-.img-13{
-  grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 28;
-    grid-row-end: 31;
-}
-
-
-.img-14{
-  grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 29;
-    grid-row-end: 33;
-}
-
-.img-15{
-  grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 31;
-    grid-row-end: 34;
-}
-.img-16{
-  grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 31;
-    grid-row-end: 35;
-}
-
-*/
-
-
-
