@@ -1,71 +1,76 @@
+
 $colors: (
-  grey: #c9c9c9,
-  black: #000000,
-  offblack: #1e2125,
-  secondaryblue: rgb(83, 167, 234),
-  blue: #0a7198
+  primary: #a09383,
+  secondary: #252625,
+  accent: #8497a1,
+  extra: #f8edda
 );
 
+/******************** 
+Responsive Media Queries 
+********/
+
+@mixin for-phone-only {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}
 /* FONTS */
 
-@import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Raleway");
 
-@font-face {
-  font-family: "big john";
-  src: url("/fonts/bigjohn-webfont.woff2") format("woff2"),
-    url("/fonts/bigjohn-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "panton";
-  src: url("/fonts/panton.woff2") format("woff2"),
-    url("/fonts/panton.WOFF") format("woff");
-  font-weight: bold;
-  font-style: normal;
-}
-@font-face {
-  font-family: "panton";
-  src: url("/fonts/panton-light.woff2") format("woff2"),
-    url("/fonts/panton-light.WOFF") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-
-
-html {
-  padding: 0;
-  margin: auto 0;
-  max-width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-}
+html,
 body {
-  margin: auto 0;
   padding: 0;
-  overflow-x: hidden;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: map-get($colors, primary);
+}
 
-  .header-flex {
-    display: flex;
-    align-items: center;
-    height: 0;
+/*******************
+Header(nav,logo,links,etc)
+*/
+
+.header-flex {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  padding: 1rem;
+
+  @include for-big-desktop-up{
     padding: 2rem;
-    margin: auto 0;
-    
   }
-
   .logo {
-    flex-grow: 1;
+    padding: 0;
+    margin: 0;
+    img {
+      width: 45px;
+      height: 40px;
+    }
   }
-
-  .logo img {
-    height: 40px;
-    
-    width: 50px;
-  }
-
 
   .ham {
     width: 35px;
@@ -83,10 +88,6 @@ body {
     transition: 0.3s;
   }
 
-  .menu {
-    display: none;
-  }
-
   .one {
     width: 50px;
   }
@@ -102,26 +103,76 @@ body {
     width: 50px;
   }
 
-  .menu li {
-    padding: 10px;
-    list-style-type: none;
-    
-  }
-  .nav-container {
-    background-color: rgba(83, 167, 234, 0.9);
+  .menu {
+    visibility: hidden;
     width: 100%;
-    height: 0;
-    z-index: 5;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    transition: all 0.5s;
-    overflow-y: hidden;
-    padding: 0;
-    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    li {
+      padding: 5px;
+      list-style-type: none;
+      display: inline-block;
+      font-size: 12px;
+    }
+    li a {
+      color: map-get($colors, secondary);
+      text-decoration: none;
+      font-family: "Playfair Display";
+      text-align: center;
+      width: 100vh;
+    }
+
+    /*****************
+    MENU LINK Animations
+    */
+
+    .link-1::after,
+    .link-2::after,
+    .link-3::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: map-get($colors, extra);
+      transition: width 0.3s;
+    }
+
+    .link-1:hover::after {
+      transition: width 0.3s;
+      width: 100%;
+    }
+
+    .link-2:hover::after {
+      transition: width 0.3s;
+      width: 100%;
+    }
+
+    .link-3:hover::after {
+      transition: width 0.3s;
+      width: 100%;
+    }
   }
+}
+
+/*************************
+NAV OVERLAY 
+*/
+
+.nav-container {
+  background-color: rgba(247,238,218,.9);
+  width: 100%;
+  height: 0;
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transition: all 0.5s;
+  overflow-y: hidden;
+  padding: 0;
+  overflow-x: hidden;
+
   .nav {
     width: 100%;
     display: flex;
@@ -137,68 +188,30 @@ body {
     list-style-type: none;
     padding: 10px 0;
     font-size: 30px;
-    
+   
   }
 
   .nav li a {
-    color: #fff;
+    color: map-get($colors, secondary);
     text-decoration: none;
-    font-family: panton;
+    font-family: "raleway";
   }
 
   .nav li a:hover {
-    color: map-get($colors, offblack);
+    color: map-get($colors, primary);
   }
 
-  .menu li a {
-    color: black;
-    text-decoration: none;
-    font-family: panton;
-    text-align: center;
-    width: 100vh;
-    font-size: 12px;
-  }
-
-  .nav-container .closeBtn {
+  .closeBtn {
     position: absolute;
     top: 20px;
     right: 50px;
     font-size: 40px;
-    color: white;
+    color: map-get($colors, primary);
     text-decoration: none;
-
     width: 5%;
   }
+}
 
-  /*****************
-  MENU LINK Animations
-  */
-
-  .link-1::after,
-  .link-2::after,
-  .link-3::after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 2px;
-    background: map-get($colors, secondaryblue);
-    transition: width 0.3s;
-  }
-
-  .link-1:hover::after {
-    transition: width 0.3s;
-    width: 100%;
-  }
-
-  .link-2:hover::after {
-    transition: width 0.3s;
-    width: 100%;
-  }
-
-  .link-3:hover::after {
-    transition: width 0.3s;
-    width: 100%;
-  }
 /**********************
 CONTENT IMAGES 
 ***********************/
@@ -213,27 +226,26 @@ CONTENT IMAGES
   font-family: panton;
   font-weight: bold;
   font-size: 24px;
-  color: map-get($colors, blue);
+  
 }
 
 .flex {
   display: flex;
   flex-wrap: wrap;
-  
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
 /* Create four equal columns that sits next to each other */
 .column {
-  flex: 33.33%;
-  max-width: 33.33%;
-  padding: 0 4px;
+  padding: 1rem;
 
 }
 
 .column img {
-  margin-top: 8px;
-  max-width: 100%;
+  margin-top: 2px;
+  width: 100%;
   
 }
 
@@ -377,286 +389,3 @@ CONTENT IMAGES
 
 
 
-/************** 
-FOOTER 
-*/
-
-footer {
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    font-family: big john;
-    color:map-get($colors, offblack);
-    width: 100%;
- height: 5vh;
- padding: 1rem;
- padding-left: 0;
- padding-right: 0;
-
-
-   
-
-    .copy {
-      flex-grow: 1;
-      font-family: panton;
-      font-weight: normal;
-      padding-left: 2rem;
-
-      color: map-get($colors, offblack);
-    }
-  }
-
-  .pgnum{
-    padding-right: 2rem;
-  }
-  .pgnum > span {
-    color: map-get($colors, blue);
-    
-  }
-
-}
-
-/******* 
-TABLET SCREEN SIZE 
-
-*/
-
-@media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
-  body {
-    overflow-x: hidden;
-    .menu {
-      display: flex;
-      width: 100%;
-      
-    }
-
-    .header-flex {
-      height: 5vh;
-  padding: 1rem;
-    }
-
-    .cover > h1{
-      font-size: 36px;
-    }
-  
-   
-  
-  }
-}
-
-@media screen and (min-device-width: 1024px) and (max-device-width: 1440px) and (-webkit-min-device-pixel-ratio: 1) {
-  body {
-    overflow-x: hidden;
-   .header-flex{
-     height: 5vh;
-     padding: 2rem;
-   }
-    .menu {
-      display: flex;
-      width: 100%;
-    }
-
-    
-  }
-}
-
-/*************
-LAPTOP SCREEN
-*/
-
-@media screen and(min-device-width: 1440px) and (max-device-width: 1600px) {
-  body {
-    overflow-x: hidden;
-
-    .menu {
-      display: flex;
-      width: 100%;
-    }
-
-    .menu li {
-      font-size: 16px;
-    }
-
-    .ham {
-      width: 35px;
-    }
-
-    .logo img {
-      width: 60px;
-      height: 50px;
-    }
-    .ham {
-      width: 35px;
-    }
-
-    .cover > h1{
-      font-size: 48px;
-    }
-
-    .column {
-      flex: 25%;
-      max-width: 25%;
-      padding: 0 4px;
-    
-    }
-
-    footer {
-    
-      .copy {
-      
-        padding-left: 2rem;
-  
-      }
-
-      .pgnum{
-        padding-right: 2rem;
-      }
-    }
-   
-
-  }
-
-}
-
-@media screen and(min-device-width: 1600px) and (max-device-width: 1920px) {
-  body {
-    overflow-x: hidden;
-
-    
-
-    .menu {
-      display: flex;
-      
-      width: 100%;
-
-    }
-
-    .menu li {
-      font-size: 16px;
-    }
-
-    .logo img {
-      height: 50px;
-      width: 60px;
-    }
-
-    .ham {
-      width: 35px;
-    }
-
-    
-
-   footer {
-    font-size: 16px;
-        .copy {
-        
-          padding-left: 3rem;
-    
-        }
-
-        .pgnum{
-          padding-right: 3rem;
-        }
-      }
-    
-  }
-}
-
-
-@media screen and(min-device-width: 1920px) and (max-device-width: 2560px) {
-  body {
-    overflow-x: hidden;
-
-    .header-flex {
- 
-      padding: 3rem;
-    }
-
-    .menu {
-      display: flex;
-      width: 100%;
-     
-    }
-
-    .menu li {
-      font-size: 16px;
-    }
-   
-    .ham {
-      width: 35px;
-    }
-
-    .cover > h1{
-      font-size: 80px;
-    }
-  
-
-    
-    footer {
-    font-size: 16px;
-      .copy {
-      
-        padding-left: 3rem;
-  
-      }
-
-      .pgnum{
-        padding-right: 3rem;
-      }
-    }
-
-  
-  }
-}
-
-
-
-@media screen and(min-device-width: 2560px) and (max-device-width: 3840px) {
-  body {
-    overflow-x: hidden;
-
-    .header-flex {
-      padding: 4rem;
-    }
-
-    .menu {
-      display: flex;
-      width: 100%;
-    }
-
-    .menu li {
-      font-size: 24px;
-    }
-
-    .logo img {
-      width: 70px;
-      height: 60px;
-    }
-    .ham {
-      width: 35px;
-    }
-
-    .cover > h1{
-      font-size: 100px;
-    }
-
-
- 
-
-   footer {
-    font-size: 24px;
-    
-       
-    
-        .copy {
-        
-          padding-left: 6rem;
-    
-        }
-        .pgnum{
-          padding-right: 6rem;
-        }
-      }
-  }
-
-}
